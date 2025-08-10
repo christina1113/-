@@ -1,0 +1,72 @@
+<view class="create-post-page">
+  <!-- 顶部导航 -->
+  <view class="header">
+    <view class="cancel-btn" bindtap="navigateBack">取消</view>
+    <view class="title">发布笔记</view>
+    <view class="submit-btn {{canSubmit ? 'active' : ''}}" bindtap="handleSubmit">发布</view>
+  </view>
+
+  <!-- 内容编辑区 -->
+  <scroll-view scroll-y class="editor-container">
+    <!-- 图片上传区域 -->
+    <view class="image-uploader">
+      <block wx:for="{{images}}" wx:key="*this">
+        <view class="image-item">
+          <image src="{{item}}" mode="aspectFill" />
+          <view class="delete-btn" bindtap="removeImage" data-index="{{index}}">×</view>
+        </view>
+      </block>
+      
+      <view 
+        class="add-btn" 
+        bindtap="chooseImage" 
+        wx:if="{{images.length < 9}}"
+      >
+        <image src="/images/icons/photo-camera.png" />
+        <text>添加图片</text>
+      </view>
+    </view>
+
+    <!-- 文字内容 -->
+    <textarea
+      class="content-input"
+      placeholder="分享你的美食故事..." 
+      placeholder-class="placeholder"
+      auto-height
+      maxlength="1000"
+      bindinput="onContentChange"
+      value="{{content}}"
+    ></textarea>
+
+    <!-- 标签选择 -->
+    <view class="section-title">添加标签</view>
+    <view class="tag-container">
+      <block wx:for="{{allTags}}" wx:key="id">
+        <view 
+          class="tag {{selectedTags.includes(item.id) ? 'selected' : ''}}" 
+          bindtap="toggleTag" 
+          data-id="{{item.id}}" 
+        >
+          {{item.name}}
+        </view>
+      </block>
+    </view>
+
+    <!-- 自定义标签输入 -->
+    <view class="custom-tag">
+      <input 
+        type="text" 
+        placeholder="自定义标签 (按回车添加)" 
+        confirm-type="done"
+        bindconfirm="addCustomTag"
+        bindinput="onTagInput"
+        value="{{customTag}}" 
+      />
+    </view>
+  </scroll-view>
+
+  <!-- 底部提示 -->
+  <view class="footer-tip">
+    <text>优质内容会被更多人看到哦~</text>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+<view class="recipe-card" bindtap="onTap">
+  <image class="recipe-image" src="{{recipe.image}}" mode="aspectFill"></image>
+  <view class="recipe-info">
+    <text class="recipe-title">{{recipe.title}}</text>
+    <text class="recipe-calories" wx:if="{{showCalorie}}">
+      Calories: {{recipe.calories}} kcal
+    </text>
+  </view>
+</view>

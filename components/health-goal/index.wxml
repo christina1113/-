@@ -1,0 +1,10 @@
+<!-- index.wxml -->
+<view class="health-goal">
+  <view class="progress-bar">
+    <view class="progress" style="{{'width:' + progress + '%;'}}"></view>
+  </view>
+  <view class="goal-text">
+    <text>目标进度: {{currentWeight}}kg/{{targetWeight}}kg</text>
+    <text>{{progress}}%</text>
+  </view>
+</view>

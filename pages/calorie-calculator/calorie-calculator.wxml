@@ -1,0 +1,66 @@
+<!--pages/calorie-calculator/calorie-calculator.wxml-->
+<view class="calculator-container">
+  <!-- 原有输入部分保持不变 -->
+  <view class="input-group">
+    <text>性别</text>
+    <picker range="{{genders}}" bindchange="changeGender">
+      <view>{{gender}}</view>
+    </picker>
+  </view>
+  
+  <view class="input-group">
+    <text>年龄</text>
+    <input type="number" placeholder="请输入年龄" bindinput="inputAge"/>
+  </view>
+  
+  <view class="input-group">
+    <text>身高(cm)</text>
+    <input type="number" placeholder="请输入身高" bindinput="inputHeight"/>
+  </view>
+  
+  <view class="input-group">
+    <text>体重(kg)</text>
+    <input type="number" placeholder="请输入体重" bindinput="inputWeight"/>
+  </view>
+  
+  <view class="result" wx:if="{{calorie}}">
+    每日推荐热量: {{calorie}} kcal
+  </view>
+  
+  <button bindtap="calculate">计算</button>
+
+  <!-- 修正后的菜谱展示区域 -->
+<view class="recipes-container" wx:if="{{recipes.length > 0}}">
+  <view class="section-title">推荐菜谱</view>
+  <view class="recipes-list">
+    <block wx:for="{{recipes}}" wx:key="name">
+      <view class="recipe-item">
+        <image class="recipe-image" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="recipe-content">
+          <view class="recipe-header">
+            <view class="recipe-name">{{item.name}}</view>
+            <view class="recipe-calories">约{{item.calories}} kcal</view>
+          </view>
+          
+          <!-- 修改后的食材和做法展示 -->
+          <view class="recipe-details">
+            <view class="detail-column">
+              <view class="detail-title">食材</view>
+              <view class="ingredients-content">
+                <text>{{item.ingredients}}</text>
+              </view>
+            </view>
+            
+            <view class="detail-column">
+              <view class="detail-title">做法</view>
+              <view class="steps-content">
+                <text>{{item.steps}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+</view>

@@ -1,0 +1,133 @@
+/* pages/calorie-calculator/calorie-calculator.wxss */
+.calculator-container {
+  padding: 30rpx;
+}
+
+.input-group {
+  margin-bottom: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.input-group text {
+  width: 120rpx;
+}
+
+.input-group input, .input-group picker view {
+  flex: 1;
+  border-bottom: 1rpx solid #eee;
+  padding: 15rpx 0;
+}
+
+.result {
+  margin: 40rpx 0;
+  font-size: 36rpx;
+  color: #81C784;
+  text-align: center;
+}
+
+button {
+  background: #81C784;
+  color: white;
+  margin-top: 50rpx;
+}
+
+/* 菜谱样式 */
+.recipes-container {
+  margin-top: 40rpx;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.05);
+}
+
+.section-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+  color: #81C784;
+  text-align: center;
+}
+
+.recipe-item {
+  display: flex;
+  background: #f9f9f9;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.recipe-image {
+  width: 220rpx;
+  height: 220rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+  object-fit: cover;
+}
+
+.recipe-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipe-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15rpx;
+}
+
+.recipe-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.recipe-calories {
+  font-size: 26rpx;
+  color: #81C784;
+  font-weight: 500;
+}
+
+.recipe-details {
+  display: flex;
+  margin-top: 15rpx;
+}
+
+.detail-column {
+  flex: 1;
+  padding: 0 10rpx;
+}
+
+.detail-title {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 8rpx;
+  font-size: 30rpx;
+}
+
+.detail-content {
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.ingredient-item, .step-item {
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+.ingredient-item, .step-item {
+  display: block;
+  margin-bottom: 8rpx;
+}
+
+/* 确保内容区域足够宽 */
+.recipe-info {
+  flex: 1;
+  min-width: 0; /* 防止flex布局溢出 */
+}
+
+.detail-column {
+  border: none !important;
+}
